@@ -79,6 +79,7 @@ class EventsController{
                 title: req.body.title,
                 description: req.body.description,
                 date: req.body.date,
+                event_date: req.body.date,
                 duration: req.body.duration || null,
                 venue: req.body.venue,
                 image_url: req.body.image_url || null,
@@ -91,6 +92,7 @@ class EventsController{
                 return res.status(200).send({
                     success: true,
                     message: 'Event added sucessfully',
+                    event
                 });
             }).catch((err) => {
                 return res.status(400).send({
@@ -133,6 +135,7 @@ class EventsController{
                     event.title = req.body.title || event.title,
                     event.description = req.body.description || event.description,
                     event.date = req.body.date || event.date,
+                    event.event_date = req.body.date || event.date,
                     event.duration = req.body.duration  || event.duration || null,
                     event.venue = req.body.venue || event.venue,
                     event.image_url = req.body.image_url  || event.image_url || null,
